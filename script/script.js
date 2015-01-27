@@ -10,15 +10,17 @@ app.controller("ticTacToeCtrl", function($scope){
 
 	// This function allows for alternating turns and inserting X & 0.
     $scope.makeMove = function(idx){
-        $scope.board[idx] = (($scope.turnNumber % 2) == 0 ? "X" : "O");
-        $scope.turnNumber++;
+    	if ($scope.turnNumber < 9) {
+	        $scope.board[idx] = (($scope.turnNumber % 2) == 0 ? "X" : "O");
+	        $scope.turnNumber++;
+	    }
     };
 
     // This limits the number of turns to 9.
 
     // This sets the possible win conditions.
 
-    
+
 
     // This describes the possible game end scenarios.
 

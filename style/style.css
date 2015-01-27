@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+/* --- New Styling --- */
+
+.cell {
+    width: 100px;
+    height: 100px;
+    font: 90px sans-serif;
+    text-align: center;
+    vertical-align: center;
+}
+
 /* --- Layout --- */
 
 body {
@@ -236,6 +246,7 @@ button {
 	background-color: #464E47;
 	width: 100%;
 	margin: 10% auto;
+	color: #FFFFFF;
 }
 
 button h5 {
