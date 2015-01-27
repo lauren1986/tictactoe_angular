@@ -1,0 +1,252 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* --- Layout --- */
+
+body {
+	background-color: #F1FFFA;
+	width: 100%;
+	color: #FFFFFF;
+}
+
+.container {
+	margin: 0 auto;
+	width: 90%;	
+}
+
+#header {
+
+}
+
+#footer {
+
+}
+
+/* --- Columns --- */
+@media (min-width: 60rem) {
+.column {
+	float: left;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.column.full {
+	width: 100%;
+}
+
+.column.two-thirds {
+	width: 66%;
+}
+
+.column.half {
+	width: 50%;
+}
+
+.column.third {
+	width: 33.3%;
+}
+
+.column.fourth {
+	width: 25%;
+}
+
+.column.fifth {
+	width: 20%;
+}
+
+.column.two-fifths {
+	width: 40%;
+}
+
+.column.three-fifths {
+	width: 60%;
+}
+
+.column.flow-opposite { float: right; 
+}
+}
+
+/* --- Rows --- */
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+/* --- Typography --- */
+
+/* Small screens (default) */
+html { font-size: 100%; }
+ 
+/* Medium screens (640px) */
+@media (min-width: 40rem) { 
+  html { font-size: 112%; }
+}
+ 
+/* Large screens (1024px) */
+@media (min-width: 64rem) { 
+  html { font-size: 120%; }
+
+}
+
+body {
+	color: #464E47;
+	font-family: "Neuton", serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #464E47;
+	font-family: "Montserrat", sans-serif;
+}
+
+h1.page-title {
+	text-align: center;
+	margin-bottom: 0;
+}
+
+h3.subtitle {
+	text-align: center;
+	font-style: italic;
+	margin: 0;
+}
+
+p.copyright {
+	text-align: center;
+	font-size: 70%;
+	margin-top: 0% 15% 0% 15%;
+}
+
+/* ---- Tic Tac Toe Board Styling --- */
+
+#gameBoard {
+	width: 90%;
+	margin: 10% auto;
+}
+
+.grid {
+	min-width: 33.3%;
+	max-width: 33.3%;
+	height: 33.3%;
+	float: left;
+	padding: 0% 15%;
+}
+
+#square1 {
+	background-color: #CCFCCB;
+}
+
+#square1:hover {
+	background-color: #A5FCA4;
+}
+
+#square2 {
+	background-color: #568259;
+}
+
+#square2:hover {
+	background-color: #318235;
+}
+
+#square3 {
+	background-color: #96E6B3;
+}
+#square3:hover {
+	background-color: #70E59B;
+}
+
+#square4 {
+	background-color: #96E6B3;
+}
+
+#square4:hover {
+	background-color: #70E59B;
+}
+
+#square5 {
+	background-color: #CCFCCB;
+}
+
+#square5:hover {
+	background-color: #A5FCA4;
+}
+
+#square6 {
+	background-color: #568259;
+}
+
+#square6:hover {
+	background-color: #318235;
+}
+
+#square7 {
+	background-color: #568259;
+}
+
+#square7:hover {
+	background-color: #318235;
+}
+
+#square8 {
+	background-color: #96E6B3;
+}
+
+#square8:hover {
+	background-color: #70E59B;
+}
+
+#square9 {
+	background-color: #CCFCCB;
+}
+
+#square9:hover {
+	background-color: #A5FCA4;
+}
+
+/* ---- Icon Styling ---- */
+
+i {
+	color: #FFFFFF;
+	height: 100%;
+	width: 100%;
+	visibility: hidden;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+}
+
+/* --- Button Styling --- */
+
+button {
+	border: none;
+	background-color: #464E47;
+	width: 100%;
+	margin: 10% auto;
+}
+
+button h5 {
+	color: #FFFFFF;
+	text-transform: uppercase;
+	padding: none;
+	text-align: center;
+}
+
+button:hover {
+	background-color: #000000;
+}
+
+ 
