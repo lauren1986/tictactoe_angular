@@ -4,16 +4,6 @@
   box-sizing: border-box;
 }
 
-/* --- New Styling --- */
-
-.cell {
-    width: 100px;
-    height: 100px;
-    font: 90px sans-serif;
-    text-align: center;
-    vertical-align: center;
-}
-
 /* --- Layout --- */
 
 body {
@@ -136,6 +126,76 @@ p.copyright {
 	text-align: center;
 	font-size: 70%;
 	margin-top: 0% 15% 0% 15%;
+}
+
+/* ---- New Tic Tac Toe Board Styling --- */
+ 
+/* Large screens (1024px) */
+@media (min-width: 64rem) { 
+
+#board_wrapper {
+		width: 602px;
+		margin: 10% auto;
+    	border: 1px solid #464E47;
+	}
+	.square {
+    	width: 200px;
+    	height: 200px;
+    	border: 2px solid #464E47;
+    	background-color: #CCFCCB;
+    	display: inline-block;
+    	vertical-align: middle;
+    	text-align: center;
+    	font-size: 96px;
+	}
+
+}
+
+/* Medium screens (640px) */
+@media (min-width: 640px) { 
+
+	#board_wrapper {
+		width: 452px;
+		margin: 10% auto;
+    	border: 1px solid #464E47;
+	}
+	.square {
+    	width: 150px;
+    	height: 150px;
+    	border: 2px solid #464E47;
+    	background-color: #CCFCCB;
+    	display: inline-block;
+    	vertical-align: middle;
+    	text-align: center;
+    	font-size: 96px;
+	}
+}
+
+/* Small screens (400px) */
+@media (max-width: 400px) { 
+
+	#board_wrapper {
+		width: 362px;
+		margin: 10% auto;
+    	border: 1px solid #464E47;
+	}
+	.square {
+    	width: 120px;
+    	height: 120px;
+    	border: 2px solid #464E47;
+    	background-color: #CCFCCB;
+    	display: inline-block;
+    	vertical-align: middle;
+    	text-align: center;
+    	font-size: 96px;
+	}
+}
+
+.xSelected {
+    background-image: url("");
+}
+.oSelected {
+   background-image: url("");
 }
 
 /* ---- Tic Tac Toe Board Styling --- */

@@ -9,25 +9,6 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic|Montserrat' rel='stylesheet' type='text/css'>
-    <style>
-    #board_wrapper {
-      width: 320px;
-      height: 320px;
-    }
-    .square {
-      width: 100px;
-      height: 100px;
-      border: 2px solid teal;
-      background-color: #FFFFFF;
-      display: inline-block;
-    }
-    .xSelected {
-      background-image: url("");
-    }
-    .oSelected {
-      background-image: url("");
-    }
-    </style>
 
   </head>
 
@@ -38,16 +19,35 @@
       <div class="row clearfix">
         <div class="column full">
           <h1 class="page-title">Tic Tac Toe</h1>
+          <h3 class="subtitle">A Tranquil Yet Badass Version</h3>
         </div>
       </div>
 
+      <div class="column two-fifths">
+          <h3>Instructions</h2>
+          <p>This is where all the instructions for tic tac toe will go.</p>
+          <p>Lorizzle ipsizzle dolor tellivizzle yippiyo, fizzle adipiscing fizzle. We gonna chung shiz velizzle, gizzle volutpizzle, suscipizzle quizzle, pimpin' vizzle, arcu. Pellentesque eget tortor. Sed pizzle.</p>
+          <h5>Extras</h5>
+          <p>This is where any extras will go, like a score card or place to choose icons.</p>
+          <h5>Scorecard</h5>
+          <p>Player 1 -- <span></span></p>
+          <p>Player 2 -- <span></span></p>
+        </div>
 
-      <div id="board_wrapper">
-        <div ng-class="{square:true, xSelected:square == 'X', oSelected: square == '0'}" 
-         ng-repeat="square in board track by $index"
-         ng-click="makeMove($index)"
-         ng-bind="square"
-         >
+      <div class="column three-fifths flow-opposite">
+        <div id="board_wrapper">
+          <div ng-class="{square:true, xSelected:square == 'X', oSelected: square == 'O'}" 
+           ng-repeat="square in board track by $index"
+           ng-click="makeMove($index)"
+           ng-bind="square"
+           >
+          </div>
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="column full">
+          <p class="copyright">Made with &hearts; and intention by Lauren Pawell.</p>
         </div>
       </div>
 
