@@ -131,7 +131,7 @@ p.copyright {
 /* ---- New Tic Tac Toe Board Styling --- */
  
 /* Large screens (1024px) */
-@media (min-width: 64rem) { 
+@media (min-width: 1024px) { 
 
 #board_wrapper {
 		width: 602px;
@@ -189,6 +189,10 @@ p.copyright {
     	text-align: center;
     	font-size: 96px;
 	}
+}
+
+.square:hover {
+	background-color: #A5FCA4;
 }
 
 .xSelected {
@@ -303,7 +307,7 @@ img {
 
 button {
 	border: none;
-	background-color: #464E47;
+	background-color: #568259;
 	width: 100%;
 	margin: 10% auto;
 	color: #FFFFFF;
@@ -317,7 +321,7 @@ button h5 {
 }
 
 button:hover {
-	background-color: #000000;
+	background-color: #318235;
 }
 
  
