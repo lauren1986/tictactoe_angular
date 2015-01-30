@@ -5,6 +5,7 @@
 }
 
 /* --- Layout --- */
+/* This is where the body and the main container for the page are set */
 
 body {
 	background-color: #F1FFFA;
@@ -14,18 +15,11 @@ body {
 
 .container {
 	margin: 0 auto;
-	width: 90%;	
-}
-
-#header {
-
-}
-
-#footer {
-
+	width: 90%;
 }
 
 /* --- Columns --- */
+/* This is where responsive columns are set for the layout, inspired by Adam Kaplan's work here: http://adamkaplan.me/grid/ */
 @media (min-width: 60rem) {
 .column {
 	float: left;
@@ -65,11 +59,12 @@ body {
 	width: 60%;
 }
 
-.column.flow-opposite { float: right; 
+.column.flow-opposite { float: right;
 }
 }
 
 /* --- Rows --- */
+/* --- This is the clearfix hack created by Nicholas Gallagher to contain floats.http://nicolasgallagher.com/micro-clearfix-hack/ --- */
 
 .clearfix:before,
 .clearfix:after {
@@ -86,17 +81,18 @@ body {
 }
 
 /* --- Typography --- */
+/* --- This is where font styling is set, specifically related to adjusting sizing based on screen size. --- */
 
 /* Small screens (default) */
 html { font-size: 100%; }
- 
+
 /* Medium screens (640px) */
-@media only screen and (min-width: 40rem) { 
+@media only screen and (min-width: 40rem) {
   html { font-size: 112%; }
 }
- 
+
 /* Large screens (1024px) */
-@media only screen and (min-width: 64rem) { 
+@media only screen and (min-width: 64rem) {
   html { font-size: 120%; }
 
 }
@@ -129,9 +125,11 @@ p.copyright {
 }
 
 /* ---- New Tic Tac Toe Board Styling --- */
- 
+/* --- This is where I adjusted styling after dynamically generating the board with Angular JS. --- */
+/* --- Game board size is adjusted based on screen size. --- */
+
 /* Large screens (1024px) */
-@media only screen and (min-width: 1024px) { 
+@media only screen and (min-width: 1024px) {
 
 	#board_wrapper {
 		width: 602px;
@@ -152,7 +150,7 @@ p.copyright {
 }
 
 /* Medium screens (640px) */
-@media only screen and (min-width: 640px) and (max-width: 1023px) { 
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
 
 	#board_wrapper {
 		width: 602px;
@@ -172,7 +170,7 @@ p.copyright {
 }
 
 /* Small screens (400px) */
-@media only screen and (min-width: 350px) and (max-width: 639px) { 
+@media only screen and (min-width: 350px) and (max-width: 639px) {
 
 	#board_wrapper {
 		width: 362px;
@@ -203,6 +201,7 @@ p.copyright {
 }
 
 /* ---- Tic Tac Toe Board Styling --- */
+/* --- This was the old game board styling, using in the Javascript verson of the board. --- */
 
 #gameBoard {
 	width: 90%;
@@ -289,6 +288,7 @@ p.copyright {
 }
 
 /* ---- Icon Styling ---- */
+/* This is the old styling from the Javascript version applied to icons from Font Awesome: http://fortawesome.github.io/Font-Awesome/icons/ */
 
 i {
 	color: #FFFFFF;
@@ -304,6 +304,7 @@ img {
 }
 
 /* --- Button Styling --- */
+/* This applies to the reset button. */
 
 button {
 	border: none;
@@ -323,5 +324,3 @@ button h5 {
 button:hover {
 	background-color: #318235;
 }
-
- 

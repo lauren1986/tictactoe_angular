@@ -3,6 +3,10 @@
   <head>
   	<title>Tic Tac Toe</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.1/angularfire.min.js"></script>
     <script type="text/javascript" src="script/script.js"></script>
   	<link rel="stylesheet" type="text/css" href="style/style.css">
   	<link rel="stylesheet" type="text/css" href="style/normalize.css">
@@ -14,17 +18,20 @@
 
   <body ng-app="ticTacToeApp" ng-controller="ticTacToeCtrl">
 
+  <!-- This is the container for the entire page. -->
   <div class="container">
 
 
       <div class="row clearfix">
+
+        <!-- This is the header for the page. -->
         <div class="column full">
           <h1 class="page-title">Tic Tac Toe</h1>
           <h3 class="subtitle">A Tranquil Yet Badass Version</h3>
         </div>
       </div>
 
-
+      <!-- This is the left container that takes up 2/5 of the page. -->
       <div class="column two-fifths">
           <h3>Instructions</h2>
           <p>This is where all the instructions for tic tac toe will go.</p>
@@ -34,12 +41,14 @@
           <h5>Scorecard</h5>
           <p>Player 1 -- <span></span></p>
           <p>Player 2 -- <span></span></p>
+          <!-- This is the button to reload a new game. -->
           <button ng-click="reset()"><h5>New Game</h5></button>
         </div>
 
-
+        <!-- This is the right container that takes up 3/5 of the page. -->
       <div class="column three-fifths flow-opposite">
 
+        <!-- This is the start of the game board. -->
         <div id="board_wrapper">
           <div ng-class="{square:true, xSelected:square == 'X', oSelected: square == 'O'}"
            ng-repeat="square in board track by $index"
@@ -53,7 +62,7 @@
 
 
       <div class="row clearfix">
-
+        <!-- This is the footer for the page. -->
         <div class="column full">
           <p class="copyright">Made with &hearts; and intention by Lauren Pawell.</p>
         </div>

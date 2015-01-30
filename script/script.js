@@ -9,15 +9,14 @@ app.controller("ticTacToeCtrl", function($scope){
     // DON'T FORGET TO DO!  $scope.names = sync.$asArray();
 
 	// This array describes the 9 possible places on the board.
-	$scope.board = ["8", "1", "6", "3", "5", "7", "4", "9", "2"];
+	$scope.board = ["", "", "", "", "", "", "", "", ""];
+
+
 
 	// This defines that the turn number starts at 0.
 	$scope.turnNumber = 0;
 
 	// This defines the two different players and the number of points they accumulate.
-	$scope.playerOne = "X";
-	$scope.playerTwo = "0";
-
 
 
 	// Change background colors of each square
@@ -38,6 +37,7 @@ app.controller("ticTacToeCtrl", function($scope){
     $scope.makeMove = function(idx){
     	if ($scope.turnNumber < 9) {
     		if (($scope.board[idx] !='X') && ($scope.board[idx] !='O')){
+
 		        var play = (($scope.turnNumber % 2) == 0 ? "X" : "O");
 		        $scope.board[idx] = play;
 		        $scope.winConditions(play);
