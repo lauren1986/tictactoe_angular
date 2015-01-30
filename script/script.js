@@ -121,33 +121,36 @@ app.controller("ticTacToeCtrl", function($scope, $firebase){
 			else if (($scope.turnNumber % 2) != 0) {
 				if(($scope.board[0] == "O") && ($scope.board[1] == "O") && ($scope.board[2]=="O") ) {
 					$scope.oWins = true;
-					console.log("O Wins!")
+					console.log("O Wins!");
 				}
-				// else if($scope.board[3] && $scope.board[4] && $scope.board[5] ) {
-				// 	$scope.checkGameStatus();
-				// }
-				// else if($scope.board[6] && $scope.board[7] && $scope.board[8] ) {
-				// 	$scope.checkGameStatus();
-				// }
-				// else if($scope.board[0] && $scope.board[3] && $scope.board[6] ) {
-				// 	$scope.checkGameStatus();
-				// }
-				//
-				// else if($scope.board[1] && $scope.board[4] && $scope.board[7] ) {
-				// 	$scope.checkGameStatus(play);
-				// }
-				// else if($scope.board[2] && $scope.board[5] && $scope.board[8] ) {
-				// 	$scope.checkGameStatus(play);
-				// }
-				// else if($scope.board[0] && $scope.board[4] && $scope.board[8] ) {
-				// 	$scope.checkGameStatus(play);
-				// }
-				// else if($scope.board[2] && $scope.board[4] && $scope.board[6] ) {
-				// 	$scope.checkGameStatus(play);
-				// }
-				// else  {
-				// 	//alert("It's a tie!")
-				// }
+				else if(($scope.board[3] == "O") && ($scope.board[4] == "O") && ($scope.board[5] == "O") ) {
+					$scope.oWins = true;
+					console.log("O Wins!");
+					}
+				else if(($scope.board[6] =="O") && ($scope.board[7] == "O") && ($scope.board[8] == "O") ) {
+					$scope.oWins = true;
+					console.log("O Wins!");
+					}
+				else if(($scope.board[0] == "O") && ($scope.board[3] == "O") && ($scope.board[6] == "O") ) {
+					$scope.oWins = true;
+					console.log("O Wins!");
+					}
+				else if(($scope.board[1] == "O") && ($scope.board[4] == "O") && ($scope.board[7] == "O") ) {
+					$scope.oWins = true;
+					console.log("O Wins!");
+					}
+				else if(($scope.board[2] == "O") && ($scope.board[5] == "O") && ($scope.board[8] == "O") ) {
+					$scope.oWins = true;
+					console.log("O Wins!");
+					}
+				else if(($scope.board[0] == "O") && ($scope.board[4] == "O") && ($scope.board[8] == "O") ) {
+					$scope.oWins = true;
+					console.log("O Wins!");
+					}
+				else if(($scope.board[2] == "O") && ($scope.board[4] == "O") && ($scope.board[6] == "O") ) {
+					$scope.oWins = true;
+					console.log("O Wins!");
+					}
 			}
     };
 
