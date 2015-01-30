@@ -9,28 +9,30 @@ app.controller("ticTacToeCtrl", function($scope){
     // DON'T FORGET TO DO!  $scope.names = sync.$asArray();
 
 	// This array describes the 9 possible places on the board.
-	$scope.board = ["", "", "", "", "", "", "", "", ""];
+	$scope.board = ["8", "1", "6", "3", "5", "7", "4", "9", "2"];
 
 	// This defines that the turn number starts at 0.
 	$scope.turnNumber = 0;
 
-	// This defines the two different players.
-	//$scope.playerOne = "X";
-	//$scope.playerTwo = "0";
+	// This defines the two different players and the number of points they accumulate.
+	$scope.playerOne = "X";
+	$scope.playerTwo = "0";
+
+
 
 	// Change background colors of each square
 
-	$scope.changeColor = function() {
-		$scope.board[0].style.backgroundColor="#CCCCCC";
-		$scope.board[1].bgColor="#000000";
-		$scope.board[2].bgColor="blue";
-		$scope.board[3].style.backgroundColor="#CCCCCC";
-		$scope.board[4].bgColor="#000000";
-		$scope.board[5].bgColor="blue";
-		$scope.board[6].style.backgroundColor="#CCCCCC";
-		$scope.board[7].bgColor="#000000";
-		$scope.board[8].bgColor="blue";
-	};
+	// $scope.changeColor = function(idx) {
+	// 	$scope.board[0] = {'background-color': 'green'};
+	// 	$scope.board[1].bgColor="#000000";
+	// 	$scope.board[2].bgColor="blue";
+	// 	$scope.board[3].style.backgroundColor="#CCCCCC";
+	// 	$scope.board[4].bgColor = ('background-color', 'white');
+	// 	$scope.board[5].style.backgroundColor="blue";
+	// 	$scope.board[6].style.backgroundColor="#CCCCCC";
+	// 	$scope.board[7].bgColor="#000000";
+	// 	$scope.board[8].bgColor="blue";
+	// };
 
 	// This function allows for alternating turns, a max of 9, no duplicating turns, and inserting X & 0.
     $scope.makeMove = function(idx){

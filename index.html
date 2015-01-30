@@ -41,7 +41,7 @@
       <div class="column three-fifths flow-opposite">
 
         <div id="board_wrapper">
-          <div ng-class="{square:true, xSelected:square == 'X', oSelected: square == 'O'}" 
+          <div ng-class="{square:true, xSelected:square == 'X', oSelected: square == 'O'}"
            ng-repeat="square in board track by $index"
            ng-click="makeMove($index)"
            ng-bind="square"
