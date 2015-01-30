@@ -20,6 +20,18 @@ app.controller("ticTacToeCtrl", function($scope){
 
 	// Change background colors of each square
 
+	$scope.changeColor = function() {
+		$scope.board[0].style.backgroundColor="#CCCCCC";
+		$scope.board[1].bgColor="#000000";
+		$scope.board[2].bgColor="blue";
+		$scope.board[3].style.backgroundColor="#CCCCCC";
+		$scope.board[4].bgColor="#000000";
+		$scope.board[5].bgColor="blue";
+		$scope.board[6].style.backgroundColor="#CCCCCC";
+		$scope.board[7].bgColor="#000000";
+		$scope.board[8].bgColor="blue";
+	};
+
 	// This function allows for alternating turns, a max of 9, no duplicating turns, and inserting X & 0.
     $scope.makeMove = function(idx){
     	if ($scope.turnNumber < 9) {

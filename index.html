@@ -16,12 +16,14 @@
 
   <div class="container">
 
+
       <div class="row clearfix">
         <div class="column full">
           <h1 class="page-title">Tic Tac Toe</h1>
           <h3 class="subtitle">A Tranquil Yet Badass Version</h3>
         </div>
       </div>
+
 
       <div class="column two-fifths">
           <h3>Instructions</h2>
@@ -35,21 +37,27 @@
           <button ng-click="reset()"><h5>New Game</h5></button>
         </div>
 
+
       <div class="column three-fifths flow-opposite">
+
         <div id="board_wrapper">
           <div ng-class="{square:true, xSelected:square == 'X', oSelected: square == 'O'}" 
            ng-repeat="square in board track by $index"
            ng-click="makeMove($index)"
-           ng-bind="square.playerMove"
+           ng-bind="square"
            >
           </div>
         </div>
+
       </div>
 
+
       <div class="row clearfix">
+
         <div class="column full">
           <p class="copyright">Made with &hearts; and intention by Lauren Pawell.</p>
         </div>
+
       </div>
 
   </div>

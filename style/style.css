@@ -91,12 +91,12 @@ body {
 html { font-size: 100%; }
  
 /* Medium screens (640px) */
-@media (min-width: 40rem) { 
+@media only screen and (min-width: 40rem) { 
   html { font-size: 112%; }
 }
  
 /* Large screens (1024px) */
-@media (min-width: 64rem) { 
+@media only screen and (min-width: 64rem) { 
   html { font-size: 120%; }
 
 }
@@ -131,11 +131,11 @@ p.copyright {
 /* ---- New Tic Tac Toe Board Styling --- */
  
 /* Large screens (1024px) */
-@media (min-width: 1024px) { 
+@media only screen and (min-width: 1024px) { 
 
-#board_wrapper {
+	#board_wrapper {
 		width: 602px;
-		margin: 10% auto;
+		margin: 5% auto;
     	border: 1px solid #464E47;
 	}
 	.square {
@@ -146,33 +146,33 @@ p.copyright {
     	display: inline-block;
     	vertical-align: middle;
     	text-align: center;
-    	font-size: 96px;
+    	font-size: 132px;
 	}
 
 }
 
 /* Medium screens (640px) */
-@media (min-width: 640px) { 
+@media only screen and (min-width: 640px) and (max-width: 1023px) { 
 
 	#board_wrapper {
-		width: 452px;
-		margin: 10% auto;
+		width: 602px;
+		margin: 5% auto;
     	border: 1px solid #464E47;
 	}
 	.square {
-    	width: 150px;
-    	height: 150px;
+    	width: 200px;
+    	height: 200px;
     	border: 2px solid #464E47;
     	background-color: #CCFCCB;
     	display: inline-block;
     	vertical-align: middle;
     	text-align: center;
-    	font-size: 96px;
+    	font-size: 132px;
 	}
 }
 
 /* Small screens (400px) */
-@media (max-width: 400px) { 
+@media only screen and (min-width: 350px) and (max-width: 639px) { 
 
 	#board_wrapper {
 		width: 362px;
@@ -187,7 +187,7 @@ p.copyright {
     	display: inline-block;
     	vertical-align: middle;
     	text-align: center;
-    	font-size: 96px;
+    	font-size: 80px;
 	}
 }
 
