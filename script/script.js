@@ -9,7 +9,7 @@ app.controller("ticTacToeCtrl", function($scope, $firebase){
     var sync = $firebase(ref);
     // download the data into a local object
     $scope.board = sync.$asArray();
-		
+
 
 // This array describes the 9 possible places on the board.
 	$scope.board = ["", "", "", "", "", "", "", "", ""];
@@ -18,9 +18,6 @@ app.controller("ticTacToeCtrl", function($scope, $firebase){
 
 // This defines that the turn number starts at 0.
 	$scope.turnNumber = 0;
-
-
-	// This defines the two different players and the number of points they accumulate.
 
 
 	// Change background colors of each square
@@ -71,85 +68,84 @@ app.controller("ticTacToeCtrl", function($scope, $firebase){
 			if (($scope.turnNumber % 2) == 0) {
 	    	if(($scope.board[0] == "X") && ($scope.board[1] == "X") && ($scope.board[2]=="X") ) {
 					$scope.xWins = true;
-					alert("X Wins!");
+					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    		}
 	    	else if(($scope.board[3] == "X") && ($scope.board[4] == "X") && ($scope.board[5]=="X") ) {
 	    		$scope.xWins = true;
-					alert("X Wins!");
+					alert("X is a tic tac toe bad ass! X is officially the winner.");
 					}
 	    	else if(($scope.board[6] == "X") && ($scope.board[7]=="X") && ($scope.board[8]=="X") ) {
 	    	  $scope.xWins = true;
-					alert("X Wins!");
+					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    		}
 	    	else if(($scope.board[0] == "X") && ($scope.board[3]=="X") && ($scope.board[6]=="X") ) {
 					$scope.xWins = true;
-					alert("X Wins!");
+					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    	  }
 	    	else if(($scope.board[1] =="X") && ($scope.board[4]=="X") && ($scope.board[7]=="X") ) {
 	    	  $scope.xWins = true;
-					alert("X Wins!");
+					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    		}
 	    	else if(($scope.board[2]=="X") && ($scope.board[5]=="X") && ($scope.board[8]=="X") ) {
 	    		$scope.xWins = true;
-					alert("X Wins!");
+					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    		}
 	    	else if(($scope.board[0]=="X") && ($scope.board[4]=="X") && ($scope.board[8]=="X") ) {
 					$scope.xWins = true;
-					alert("X Wins!");
+					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    	 	}
 	    	else if(($scope.board[2]=="X") && ($scope.board[4]=="X") && ($scope.board[6]=="X") ) {
 					$scope.xWins = true;
-					alert("X Wins!");
+					alert("X is a tic tac toe bad ass! X is officially the winner.");
 					}
 			}
 			else if (($scope.turnNumber % 2) != 0) {
 				if(($scope.board[0] == "O") && ($scope.board[1] == "O") && ($scope.board[2]=="O") ) {
 					$scope.oWins = true;
-					alert("O Wins!");
+					alert("O is a tic tac toe bad ass! O is officially the winner.");
 				}
 				else if(($scope.board[3] == "O") && ($scope.board[4] == "O") && ($scope.board[5] == "O") ) {
 					$scope.oWins = true;
-					alert("O Wins!");
+					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
 				else if(($scope.board[6] =="O") && ($scope.board[7] == "O") && ($scope.board[8] == "O") ) {
 					$scope.oWins = true;
-					alert("O Wins!");
+					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
 				else if(($scope.board[0] == "O") && ($scope.board[3] == "O") && ($scope.board[6] == "O") ) {
 					$scope.oWins = true;
-					alert("O Wins!");
+					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
 				else if(($scope.board[1] == "O") && ($scope.board[4] == "O") && ($scope.board[7] == "O") ) {
 					$scope.oWins = true;
-					alert("O Wins!");
+					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
 				else if(($scope.board[2] == "O") && ($scope.board[5] == "O") && ($scope.board[8] == "O") ) {
 					$scope.oWins = true;
-					alert("O Wins!");
+					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
 				else if(($scope.board[0] == "O") && ($scope.board[4] == "O") && ($scope.board[8] == "O") ) {
 					$scope.oWins = true;
-					alert("O Wins!");
+					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
 				else if(($scope.board[2] == "O") && ($scope.board[4] == "O") && ($scope.board[6] == "O") ) {
 					$scope.oWins = true;
-					alert("O Wins!");
+					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
 			}
 			if (($scope.turnNumber == 8) && ($scope.oWins != true) && ($scope.xWins != true) ) {
-					alert("It is a tie!");
+					alert("So sorry Charlie! You haven't outsmarted your opponent...it's a tie.");
 				}
 			if (($scope.oWins == true) || ($scope.xWins == true)) {
 					// console.log("now stop game");
-
 				}
 
     };
 
-  	// [0,1,2] [3,4,5] [6,7,8] [0,3,6] [1,4,7] [2,5,8] [0,4,8] [2,4,6]
+  	// Winning combinations -- reference for notes. [0,1,2] [3,4,5] [6,7,8] [0,3,6] [1,4,7] [2,5,8] [0,4,8] [2,4,6]
 
 
-// This is where you reset the board.
+// This is where the board is reset.
 
 	$scope.reset = function(){
 		location.reload();
