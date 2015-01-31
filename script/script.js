@@ -6,39 +6,31 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 // Set up of various pieces that will be synced to Firebase.
 
 	// This is the board setup.
-		var ref = new Firebase("https://angular-tic-tac-toe.firebaseapp.com/board");
+		var ref = new Firebase("https://angular-tic-tac-toe.firebaseio.com/board");
     	// create an AngularFire reference to the data
     	var sync = $firebase(ref);
     	// download the data into a local object
     	$scope.board = sync.$asArray();
 
-	// This is the moves setup.
-		var movesref = new Firebase("https://angular-tic-tac-toe.firebaseapp.com/moves");
-			// create an AngularFire reference to the data
-			var movessync = $firebase(ref);
-			// download the data into a local object
-			$scope.moves = movessync.$asArray();
 
-// Save board to Firebase.
+// Create and save board to Firebase.
 
-	$scope.board.$loaded(function(){
+$scope.board.$loaded (function () {
 		if($scope.board.length == 0){
-			for(var i = 0; i < 9; i++){
-				$scope.board.$add({playerMove:""});
-				}
+			for(i = 0; i < 9; i++){
+				$scope.board.$add({playerMove: ""});
+			}
 		}
 		else{
-			for(var i = 0; i <9; i++){
-				$scope.board[i].playerMove ="";
+			for(i = 0; i < 9; i++){
+				$scope.board[i].playerMove = "";
 				$scope.board.$save(i);
-				}
+			}
 		}
 	});
 
-// This array describes the 9 possible places on the board.
-	$scope.board = ["", "", "", "", "", "", "", "", ""];
-
-
+// This array describes the 9 possible places on the board. This is the old way to generate the board.
+	//$scope.board = ["", "", "", "", "", "", "", "", ""];
 
 // This defines that the turn number starts at 0.
 	$scope.turnNumber = 0;
