@@ -12,22 +12,32 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
     	// download the data into a local object
     	$scope.board = sync.$asArray();
 
+	// This is the player moves setup.
+		var movesByPlayerRef = new Firebase("https://angular-tic-tac-toe.firebaseio.com/movesByPlayer");
+			// create an AngularFire reference to the data
+			var movesByPlayerSync = $firebase(ref);
+			// download the data into a local object
+			$scope.movesByPlayer = movesByPlayerSync.$asArray();
+
 
 // Create and save board to Firebase.
 
 $scope.board.$loaded (function () {
 		if($scope.board.length == 0){
 			for(i = 0; i < 9; i++){
-				$scope.board.$add({playerMove: ""});
+				$scope.board.$add({moveByPlayer: ""});
 			}
 		}
 		else{
 			for(i = 0; i < 9; i++){
-				$scope.board[i].playerMove = "";
+				$scope.board[i].moveByPlayer = "";
 				$scope.board.$save(i);
 			}
 		}
 	});
+
+// Create and save the players' moves to Firebase.
+
 
 // This array describes the 9 possible places on the board. This is the old way to generate the board.
 	//$scope.board = ["", "", "", "", "", "", "", "", ""];
@@ -53,14 +63,17 @@ $scope.board.$loaded (function () {
 
 // This function allows for alternating turns, a max of 9, no duplicating turns, and inserting X & 0.
     $scope.makeMove = function(idx){
+			console.log("The click works!");
     	if ($scope.turnNumber < 9) {
-    		if (($scope.board[idx] !='X') && ($scope.board[idx] !='O')){
+    		if (($scope.board[idx].moveByPlayer !='X') && ($scope.board[idx].moveByPlayer !='O')){
 
 						if (($scope.turnNumber % 2) == 0) {
-							$scope.board[idx] = "X";
+							$scope.board[idx].moveByPlayer = "X";
+							$scope.board.$save($scope.board[idx]);
 						}
 						else if (($scope.turnNumber % 2) != 0) {
-							$scope.board[idx] = "O";
+							$scope.board[idx].moveByPlayer = "O";
+							$scope.board.$save($scope.board[idx]);
 						}
 		        $scope.winConditions();
 		        $scope.turnNumber++;
