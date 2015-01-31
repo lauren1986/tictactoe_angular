@@ -1,4 +1,4 @@
-var ticTacToeApp = angular.module("ticTacToeApp", ["firebasef"]);
+var ticTacToeApp = angular.module("ticTacToeApp", ["firebase"]);
 
 ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 
@@ -13,30 +13,32 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
     	$scope.board = sync.$asArray();
 
 	// This is the moves setup.
-		var ref = new Firebase("https://angular-tic-tac-toe.firebaseapp.com/moves");
+		var movesref = new Firebase("https://angular-tic-tac-toe.firebaseapp.com/moves");
 			// create an AngularFire reference to the data
-			var sync = $firebase(ref);
+			var movessync = $firebase(ref);
 			// download the data into a local object
-			$scope.moves = sync.$asArray();
+			$scope.moves = movessync.$asArray();
 
 
 // This array describes the 9 possible places on the board.
 	$scope.board = ["", "", "", "", "", "", "", "", ""];
 
 // Save board to Firebase.
+
 	$scope.board.$loaded(function(){
-		if ($scope.board.length==0){
-			for (var i = 0; i<9; i++) {
-				$scope.board.$add({moves: ""});
+			if($scope.board.length == 0){
+				for(var i = 0; i < 9; i++){
+					$scope.board.$add({playerMove:""});
+				}
 			}
-		}
-		else () {
-			for (var j = 0; j < 9; j++) {
-				$scope.board[j].playerMove = "";
-				$scope.board.$save(j);
+			else{
+				for(var i = 0; i <9; i++){
+					$scope.board[i].playerMove ="";
+					$scope.board.$save(i);
+				}
 			}
-		}
-	});
+		});
+		
 
 // This defines that the turn number starts at 0.
 	$scope.turnNumber = 0;
@@ -84,7 +86,7 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
     	$scope.oWins = false;
 
 
-// This sets the possible win conditions, checks ending status of game and prevents further moves after win.
+// This sets the possible win conditions, checks ending status of game and prevents further moves after win. Thanks Wendy for your assistance on this piece!
 
     $scope.winConditions = function() {
 			if (($scope.turnNumber % 2) == 0) {
