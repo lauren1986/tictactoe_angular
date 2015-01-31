@@ -19,28 +19,45 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 			// download the data into a local object
 			$scope.movesByPlayer = movesByPlayerSync.$asArray();
 
+	// This is the turns setup.
+		var turnsRef = new Firebase("https://angular-tic-tac-toe.firebaseio.com/turns");
+			// create an AngularFire reference to the data
+			var turnsSync = $firebase(ref);
+			// download the data into a local object
+			$scope.turns = turnsSync.$asArray();
 
-// Create and save board to Firebase.
 
-$scope.board.$loaded (function () {
-		if($scope.board.length == 0){
-			for(i = 0; i < 9; i++){
-				$scope.board.$add({moveByPlayer: ""});
+	// Creates and saves the board to Firebase.
+
+	$scope.board.$loaded (function () {
+			if($scope.board.length == 0){
+				for(i = 0; i < 9; i++){
+					$scope.board.$add({moveByPlayer: ""});
+				}
 			}
+			else{
+				for(i = 0; i < 9; i++){
+					$scope.board[i].moveByPlayer = "";
+					$scope.board.$save(i);
+				}
+			}
+		});
+
+	// Creates and saves the players' moves to Firebase.
+
+	// Creates and saves the turns to Firebase.
+
+	$scope.turns.$loaded(function(){
+		if ($scope.turns.length==0){
+			$scope.turns.$add({numMoves: 0});
 		}
-		else{
-			for(i = 0; i < 9; i++){
-				$scope.board[i].moveByPlayer = "";
-				$scope.board.$save(i);
-			}
+		else {
+			$scope.turns[0].numMoves=0;
+			$scope.turns.$save(0);
 		}
 	});
 
-// Create and save the players' moves to Firebase.
 
-
-// This array describes the 9 possible places on the board. This is the old way to generate the board.
-	//$scope.board = ["", "", "", "", "", "", "", "", ""];
 
 // This defines that the turn number starts at 0.
 	$scope.turnNumber = 0;
@@ -68,12 +85,14 @@ $scope.board.$loaded (function () {
     		if (($scope.board[idx].moveByPlayer !='X') && ($scope.board[idx].moveByPlayer !='O')){
 
 						if (($scope.turnNumber % 2) == 0) {
+							console.log("It's X's Turn!");
 							$scope.board[idx].moveByPlayer = "X";
 							$scope.board.$save($scope.board[idx]);
 						}
 						else if (($scope.turnNumber % 2) != 0) {
+							console.log("It's O's Turn!");
 							$scope.board[idx].moveByPlayer = "O";
-							$scope.board.$save($scope.board[idx]);f
+							$scope.board.$save($scope.board[idx]);
 						}
 		        $scope.winConditions();
 		        $scope.turnNumber++;
