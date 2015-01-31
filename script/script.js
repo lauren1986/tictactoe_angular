@@ -73,7 +73,7 @@ $scope.board.$loaded (function () {
 						}
 						else if (($scope.turnNumber % 2) != 0) {
 							$scope.board[idx].moveByPlayer = "O";
-							$scope.board.$save($scope.board[idx]);
+							$scope.board.$save($scope.board[idx]);f
 						}
 		        $scope.winConditions();
 		        $scope.turnNumber++;
@@ -95,69 +95,69 @@ $scope.board.$loaded (function () {
 
     $scope.winConditions = function() {
 			if (($scope.turnNumber % 2) == 0) {
-	    	if(($scope.board[0] == "X") && ($scope.board[1] == "X") && ($scope.board[2]=="X") ) {
+	    	if(($scope.board[0].moveByPlayer == "X") && ($scope.board[1].moveByPlayer == "X") && ($scope.board[2].moveByPlayer == "X") ) {
 					$scope.xWins = true;
 					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    		}
-	    	else if(($scope.board[3] == "X") && ($scope.board[4] == "X") && ($scope.board[5]=="X") ) {
+	    	else if(($scope.board[3].moveByPlayer == "X") && ($scope.board[4].moveByPlayer == "X") && ($scope.board[5].moveByPlayer == "X") ) {
 	    		$scope.xWins = true;
 					alert("X is a tic tac toe bad ass! X is officially the winner.");
 					}
-	    	else if(($scope.board[6] == "X") && ($scope.board[7]=="X") && ($scope.board[8]=="X") ) {
+	    	else if(($scope.board[6].moveByPlayer == "X") && ($scope.board[7].moveByPlayer == "X") && ($scope.board[8].moveByPlayer == "X") ) {
 	    	  $scope.xWins = true;
 					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    		}
-	    	else if(($scope.board[0] == "X") && ($scope.board[3]=="X") && ($scope.board[6]=="X") ) {
+	    	else if(($scope.board[0].moveByPlayer == "X") && ($scope.board[3].moveByPlayer == "X") && ($scope.board[6].moveByPlayer == "X") ) {
 					$scope.xWins = true;
 					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    	  }
-	    	else if(($scope.board[1] =="X") && ($scope.board[4]=="X") && ($scope.board[7]=="X") ) {
+	    	else if(($scope.board[1].moveByPlayer =="X") && ($scope.board[4].moveByPlayer == "X") && ($scope.board[7].moveByPlayer == "X") ) {
 	    	  $scope.xWins = true;
 					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    		}
-	    	else if(($scope.board[2]=="X") && ($scope.board[5]=="X") && ($scope.board[8]=="X") ) {
+	    	else if(($scope.board[2].moveByPlayer == "X") && ($scope.board[5].moveByPlayer == "X") && ($scope.board[8].moveByPlayer == "X") ) {
 	    		$scope.xWins = true;
 					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    		}
-	    	else if(($scope.board[0]=="X") && ($scope.board[4]=="X") && ($scope.board[8]=="X") ) {
+	    	else if(($scope.board[0].moveByPlayer == "X") && ($scope.board[4].moveByPlayer == "X") && ($scope.board[8].moveByPlayer == "X") ) {
 					$scope.xWins = true;
 					alert("X is a tic tac toe bad ass! X is officially the winner.");
 	    	 	}
-	    	else if(($scope.board[2]=="X") && ($scope.board[4]=="X") && ($scope.board[6]=="X") ) {
+	    	else if(($scope.board[2].moveByPlayer == "X") && ($scope.board[4].moveByPlayer == "X") && ($scope.board[6].moveByPlayer == "X") ) {
 					$scope.xWins = true;
 					alert("X is a tic tac toe bad ass! X is officially the winner.");
 					}
 			}
 			else if (($scope.turnNumber % 2) != 0) {
-				if(($scope.board[0] == "O") && ($scope.board[1] == "O") && ($scope.board[2]=="O") ) {
+				if(($scope.board[0].moveByPlayer == "O") && ($scope.board[1].moveByPlayer == "O") && ($scope.board[2].moveByPlayer == "O") ) {
 					$scope.oWins = true;
 					alert("O is a tic tac toe bad ass! O is officially the winner.");
 				}
-				else if(($scope.board[3] == "O") && ($scope.board[4] == "O") && ($scope.board[5] == "O") ) {
+				else if(($scope.board[3].moveByPlayer == "O") && ($scope.board[4].moveByPlayer == "O") && ($scope.board[5].moveByPlayer == "O") ) {
 					$scope.oWins = true;
 					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
-				else if(($scope.board[6] =="O") && ($scope.board[7] == "O") && ($scope.board[8] == "O") ) {
+				else if(($scope.board[6].moveByPlayer == "O") && ($scope.board[7].moveByPlayer == "O") && ($scope.board[8].moveByPlayer == "O") ) {
 					$scope.oWins = true;
 					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
-				else if(($scope.board[0] == "O") && ($scope.board[3] == "O") && ($scope.board[6] == "O") ) {
+				else if(($scope.board[0].moveByPlayer == "O") && ($scope.board[3].moveByPlayer == "O") && ($scope.board[6].moveByPlayer == "O") ) {
 					$scope.oWins = true;
 					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
-				else if(($scope.board[1] == "O") && ($scope.board[4] == "O") && ($scope.board[7] == "O") ) {
+				else if(($scope.board[1].moveByPlayer == "O") && ($scope.board[4].moveByPlayer == "O") && ($scope.board[7].moveByPlayer == "O") ) {
 					$scope.oWins = true;
 					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
-				else if(($scope.board[2] == "O") && ($scope.board[5] == "O") && ($scope.board[8] == "O") ) {
+				else if(($scope.board[2].moveByPlayer == "O") && ($scope.board[5].moveByPlayer == "O") && ($scope.board[8].moveByPlayer == "O") ) {
 					$scope.oWins = true;
 					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
-				else if(($scope.board[0] == "O") && ($scope.board[4] == "O") && ($scope.board[8] == "O") ) {
+				else if(($scope.board[0].moveByPlayer == "O") && ($scope.board[4].moveByPlayer == "O") && ($scope.board[8].moveByPlayer == "O") ) {
 					$scope.oWins = true;
 					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
-				else if(($scope.board[2] == "O") && ($scope.board[4] == "O") && ($scope.board[6] == "O") ) {
+				else if(($scope.board[2].moveByPlayer == "O") && ($scope.board[4].moveByPlayer == "O") && ($scope.board[6].moveByPlayer == "O") ) {
 					$scope.oWins = true;
 					alert("O is a tic tac toe bad ass! O is officially the winner.");
 					}
