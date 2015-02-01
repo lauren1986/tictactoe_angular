@@ -124,6 +124,10 @@ p.copyright {
 	margin-top: 0% 15% 0% 15%;
 }
 
+p.little {
+  font-size: 80%;
+}
+
 /* ---- New Tic Tac Toe Board Styling --- */
 /* --- This is where I adjusted styling after dynamically generating the board with Angular JS. --- */
 /* --- Game board size is adjusted based on screen size. --- */
