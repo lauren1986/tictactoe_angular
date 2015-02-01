@@ -190,7 +190,7 @@ p.copyright {
 }
 
 .square:hover {
-	background-color: #A5FCA4;
+	background-color: #96E6B3;
 }
 
 .xSelected {
@@ -308,7 +308,7 @@ img {
 
 button {
 	border: none;
-	background-color: #568259;
+	background-color: #464E47;
 	width: 100%;
 	margin: 10% auto;
 	color: #FFFFFF;
@@ -322,5 +322,5 @@ button h5 {
 }
 
 button:hover {
-	background-color: #318235;
+	background-color: #568259;
 }

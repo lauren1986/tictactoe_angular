@@ -3,7 +3,7 @@ var ticTacToeApp = angular.module("ticTacToeApp", ["firebase"]);
 ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 
 
-// Set up of various pieces that will be synced to Firebase.
+// Set up of various pieces that will be synced to Firebase. Special thanks to Wendy for all of her inspiration.
 
 	// This is the board setup.
 		var ref = new Firebase("https://angular-tic-tac-toe.firebaseio.com/board");
@@ -48,15 +48,16 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 	// Creates and saves the turns to Firebase.
 
 	$scope.turns.$loaded(function(){
-		if ($scope.turns.length==0){
+		if ($scope.counter == 0){
 			$scope.turns.$add({numMoves: 0});
 		}
 		else {
-			$scope.turns[0].numMoves=0;
+			$scope.counter[0].numMoves=0;
 			$scope.turns.$save(0);
 		}
 	});
 
+	// Creates and saves __________ to Firebase.
 
 
 // This defines that the turn number starts at 0.
@@ -80,22 +81,20 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 
 // This function allows for alternating turns, a max of 9, no duplicating turns, and inserting X & 0.
     $scope.makeMove = function(idx){
-			console.log("The click works!");
-    	if ($scope.turnNumber < 9) {
-    		if (($scope.board[idx].moveByPlayer !='X') && ($scope.board[idx].moveByPlayer !='O')){
+    	if ($scope.turns[0].numMoves == 0) {
+    		if (($scope.board[idx].moveByPlayer !='X') && ($scope.board[idx].moveByPlayer !='O') ){
 
-						if (($scope.turnNumber % 2) == 0) {
-							console.log("It's X's Turn!");
+						if (($scope.turns[0].numMoves % 2) == 0) {
 							$scope.board[idx].moveByPlayer = "X";
 							$scope.board.$save($scope.board[idx]);
 						}
-						else if (($scope.turnNumber % 2) != 0) {
-							console.log("It's O's Turn!");
+						else if (($scope.turns[0].numMoves % 2) != 0) {
 							$scope.board[idx].moveByPlayer = "O";
 							$scope.board.$save($scope.board[idx]);
 						}
 		        $scope.winConditions();
-		        $scope.turnNumber++;
+		        $scope.turns[0].numMoves++;
+						$scope.turns.$save[0];
 		    }
 		}
     };
