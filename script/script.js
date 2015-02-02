@@ -26,13 +26,6 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 			// download the data into a local object
 			$scope.turns = turnsSync.$asArray();
 
-	// // This is the winners setup.
-	// 	var winnersRef = new Firebase("https://angular-tic-tac-toe.firebaseio.com/winners");
-	// 		// create an AngularFire reference to the data
-	// 		var winnersSync = $firebase(winnersRef);
-	// 		// download the data into a local object
-	// 		$scope.winners = winnersSync.$asArray();
-
 
 	// Creates and saves the board to Firebase.
 
@@ -74,25 +67,6 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 			$scope.turns.$save($scope.turns[0]);
 		}
 	});
-
-	// Creates and saves the winners to Firebase.
-
-	$scope.winners.$loaded(function() {
-		if($scope.winners.length == 0){
-				$scope.winners.$add({p1wins: "0 wins", p2wins:"0 wins", ties: "0 ties"});
-			}
-			else {
-				$scope.winners[0].p1wins ="0 wins";
-				$scope.winners[0].p2wins ="0 wins";
-				$scope.winners[0].ties ="0 ties";
-				$scope.winners.$save(0);
-			}
-
-		});
-
-		var p1wins = 0;
-		var p2wins = 0;
-		var ties = 0;
 
 
 // This function allows for alternating turns, no duplicate turns, and inserting X & 0.
@@ -212,13 +186,11 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 
   	// Winning combinations -- reference for notes. [0,1,2] [3,4,5] [6,7,8] [0,3,6] [1,4,7] [2,5,8] [0,4,8] [2,4,6]
 
-// This is where the scoreboard is set.
-
 
 // This is where the board is reset.
 
-	function(scoreBoard){
-		document.getElementById('playerOneWins');
+	$scope.reset = function(){
+		location.reload();
 	};
 
 });
