@@ -3,7 +3,7 @@ var ticTacToeApp = angular.module("ticTacToeApp", ["firebase"]);
 ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 
 
-// Set up of various pieces that will be synced to Firebase. Special thanks to Wendy for all of her inspiration.
+// Set up of various pieces that will be synced to Firebase. Special thanks to Wendy for all of her inspiration, as well as Dan, Sam, Brooke, Lee and Will for all their help to get to this "final" product!
 
 	// This is the board setup.
 		var ref = new Firebase("https://angular-tic-tac-toe.firebaseio.com/board");
@@ -43,8 +43,18 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 			}
 		});
 
-	// Creates and saves the players' moves to Firebase.
+	// Creates and saves the players to Firebase.
 
+	$scope.movesByPlayer.$loaded(function(){
+		if($scope.movesByPlayer.length == 0){
+			$scope.movesByPlayer.$add({playerOne: false, playerTwo: true});
+		}
+		else{
+			$scope.movesByPlayer[0].playerOne = false;
+			$scope.movesByPlayer[0].playerTwo = true;
+			$scope.movesByPlayer.$save(0);
+		}
+	});
 
 	// Creates and saves the turns to Firebase.
 
@@ -81,24 +91,26 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 // This function allows for alternating turns, no duplicate turns, and inserting X & 0.
     $scope.makeMove = function(idx){
 			console.log ("ready to start making moves");
-    	if ($scope.turns[0].numMoves >= 0) {
+    	if ($scope.turns[0].numMoves == 0) {
+					$scope.movesByPlayer[0].playerOne = true;
+					$scope.movesByPlayer[0].playerTwo = false;
+			}
 				console.log("now check if squares empty");
-    		if (($scope.board[idx].moveByPlayer !='X') && ($scope.board[idx].moveByPlayer !='O')){
-						if (($scope.turns[0].numMoves % 2) == 0) {
-							console.log("it's X's turn");
-							$scope.board[idx].moveByPlayer = "X";
-							$scope.board.$save($scope.board[idx]);
-						}
-						else if (($scope.turns[0].numMoves % 2) != 0) {
-							console.log("it's O's turn");
-							$scope.board[idx].moveByPlayer = "O";
-							$scope.board.$save($scope.board[idx]);
-						}
-		        $scope.winConditions();
-		        $scope.turns[0].numMoves++;
-						$scope.turns.$save($scope.turns[0]);
-		    }
-		}
+    	if (($scope.board[idx].moveByPlayer !='X') && ($scope.board[idx].moveByPlayer !='O') && ($scope.turns[0].numMoves >= 0)){
+					if ((($scope.turns[0].numMoves % 2) == 0) && ($scope.movesByPlayer[0].playerOne == true)) {
+						console.log("it's X's turn");
+						$scope.board[idx].moveByPlayer = "X";
+						$scope.board.$save($scope.board[idx]);
+					}
+					else if ((($scope.turns[0].numMoves % 2) != 0) && ($scope.movesByPlayer[0].playerTwo == true)) {
+						console.log("it's O's turn");
+						$scope.board[idx].moveByPlayer = "O";
+						$scope.board.$save($scope.board[idx]);
+					}
+		      $scope.winConditions();
+		      $scope.turns[0].numMoves++;
+					$scope.turns.$save($scope.turns[0]);
+		   }
     };
 
 
@@ -186,7 +198,7 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 					alert("So sorry Charlie! You haven't outsmarted your opponent, and therefore do not deserve any wisdom. Request a redo, get out of your head, and show us why you merit some advice.");
 				}
 			if (($scope.oWins == true) || ($scope.xWins == true)) {
-					// console.log("now stop game");
+					location.reload();
 				}
 
     };
