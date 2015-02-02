@@ -15,14 +15,14 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 	// This is the player moves setup.
 		var movesByPlayerRef = new Firebase("https://angular-tic-tac-toe.firebaseio.com/movesByPlayer");
 			// create an AngularFire reference to the data
-			var movesByPlayerSync = $firebase(ref);
+			var movesByPlayerSync = $firebase(movesByPlayerRef);
 			// download the data into a local object
 			$scope.movesByPlayer = movesByPlayerSync.$asArray();
 
 	// This is the turns setup.
-		var turnsRef = new Firebase("https://angular-tic-tac-toe.firebaseio.com/turn");
+		var turnsRef = new Firebase("https://angular-tic-tac-toe.firebaseio.com/turns");
 			// create an AngularFire reference to the data
-			var turnsSync = $firebase(ref);
+			var turnsSync = $firebase(turnsRef);
 			// download the data into a local object
 			$scope.turns = turnsSync.$asArray();
 
@@ -78,7 +78,7 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 	// };
 
 
-// This function allows for alternating turns, a max of 9, no duplicating turns, and inserting X & 0.
+// This function allows for alternating turns, no duplicate turns, and inserting X & 0.
     $scope.makeMove = function(idx){
 			console.log ("ready to start making moves");
     	if ($scope.turns[0].numMoves >= 0) {
@@ -114,7 +114,7 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 // This sets the possible win conditions, checks ending status of game and prevents further moves after win. Thanks Wendy for your assistance on this piece!
 
     $scope.winConditions = function() {
-			if (($scope.turnNumber % 2) == 0) {
+			if (($scope.turns[0].numMoves % 2) == 0) {
 	    	if(($scope.board[0].moveByPlayer == "X") && ($scope.board[1].moveByPlayer == "X") && ($scope.board[2].moveByPlayer == "X") ) {
 					$scope.xWins = true;
 					alert('"Build your own dreams, or someone else will hire you to build theirs."');
@@ -148,7 +148,7 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 					alert('"Challenges are what make life interesting and overcoming them is what makes life meaningful."');
 					}
 			}
-			else if (($scope.turnNumber % 2) != 0) {
+			else if (($scope.turns[0].numMoves % 2) != 0) {
 				if(($scope.board[0].moveByPlayer == "O") && ($scope.board[1].moveByPlayer == "O") && ($scope.board[2].moveByPlayer == "O") ) {
 					$scope.oWins = true;
 					alert('"Limitations live only in our minds. But if we use our imaginations, our possibilities become limitless."');
@@ -182,7 +182,7 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 					alert('"Never let success get to your head, never let failure get to your heart."');
 					}
 			}
-			if (($scope.turnNumber == 8) && ($scope.oWins != true) && ($scope.xWins != true) ) {
+			if (($scope.turns[0].numMoves == 8) && ($scope.oWins != true) && ($scope.xWins != true) ) {
 					alert("So sorry Charlie! You haven't outsmarted your opponent, and therefore do not deserve any wisdom. Request a redo, get out of your head, and show us why you merit some advice.");
 				}
 			if (($scope.oWins == true) || ($scope.xWins == true)) {
