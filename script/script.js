@@ -69,25 +69,6 @@ ticTacToeApp.controller("ticTacToeCtrl", function($scope, $firebase) {
 	});
 
 
-// This defines that the turn number starts at 0. This is the old way to create the turn counter.
-	// $scope.turnNumber = 0;
-
-
-	// Change background colors of each square
-
-	// $scope.changeColor = function(idx) {
-	// 	$scope.board[0] = {'background-color': 'green'};
-	// 	$scope.board[1].bgColor="#000000";
-	// 	$scope.board[2].bgColor="blue";
-	// 	$scope.board[3].style.backgroundColor="#CCCCCC";
-	// 	$scope.board[4].bgColor = ('background-color', 'white');
-	// 	$scope.board[5].style.backgroundColor="blue";
-	// 	$scope.board[6].style.backgroundColor="#CCCCCC";
-	// 	$scope.board[7].bgColor="#000000";
-	// 	$scope.board[8].bgColor="blue";
-	// };
-
-
 // This function allows for alternating turns, no duplicate turns, and inserting X & 0.
     $scope.makeMove = function(idx){
 			console.log ("ready to start making moves");
